@@ -17,47 +17,34 @@ public class MainTwo {
             }
 
             String[] levels = in.split("\\s+");
-            boolean isSafe = true; // Flag to check if the report is safe
-
+            int[] report = new int[levels.length];
             try {
-                int prevLevel = Integer.parseInt(levels[0]);
-                Boolean isIncreasing = null;
-
-                for (int i = 1; i < levels.length; i++) {
-                    int currentLevel = Integer.parseInt(levels[i]);
-                    int diff = Math.abs(currentLevel - prevLevel);
-
-                    // Check if the difference is between 1 and 3
-                    if (diff < 1 || diff > 3) {
-                        isSafe = false;
-                        break;
-                    }
-
-                    // Check if the sequence is increasing or decreasing
-                    if (isIncreasing == null) {
-                        if (currentLevel > prevLevel) {
-                            isIncreasing = true;
-                        } else if (currentLevel < prevLevel) {
-                            isIncreasing = false;
-                        }
-                    } else if (isIncreasing && currentLevel < prevLevel) {
-                        isSafe = false;
-                        break;
-                    } else if (!isIncreasing && currentLevel > prevLevel) {
-                        isSafe = false;
-                        break;
-                    }
-
-                    prevLevel = currentLevel;
+                for (int i = 0; i < levels.length; i++) {
+                    report[i] = Integer.parseInt(levels[i]);
                 }
-                
-                // If no issues were found, the report is safe
-                if (isSafe) {
-                    safeReportsCount++;
-                }
-
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input");
+                continue;
+            }
+
+            // Check if the report is safe without removing a level
+            if (isSafe(report)) {
+                safeReportsCount++;
+                continue;
+            }
+
+            // Try removing each level and check if the report becomes safe
+            boolean foundSafe = false;
+            for (int i = 0; i < report.length; i++) {
+                int[] modifiedReport = removeLevel(report, i);
+                if (isSafe(modifiedReport)) {
+                    foundSafe = true;
+                    break;
+                }
+            }
+
+            if (foundSafe) {
+                safeReportsCount++;
             }
         }
 
@@ -65,5 +52,44 @@ public class MainTwo {
 
         // Output the count of safe reports
         System.out.println("safe reports: " + safeReportsCount);
+    }
+
+    /**
+     * Checks if a report is safe according to the rules.
+     */
+    private static boolean isSafe(int[] report) {
+        if (report.length < 2) {
+            return true; // Always safe
+        }
+
+        boolean isIncreasing = report[1] > report[0];
+        for (int i = 1; i < report.length; i++) {
+            int diff = report[i] - report[i - 1];
+
+            // Check if adjacent levels differ by at least 1 and at most 3
+            if (Math.abs(diff) < 1 || Math.abs(diff) > 3) {
+                return false;
+            }
+
+            // Check if levels are consistently increasing or decreasing
+            if ((isIncreasing && diff < 0) || (!isIncreasing && diff > 0)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Removes the level at the specified index and returns a new array.
+     */
+    private static int[] removeLevel(int[] report, int indexToRemove) {
+        int[] modifiedReport = new int[report.length - 1];
+        for (int i = 0, j = 0; i < report.length; i++) {
+            if (i != indexToRemove) {
+                modifiedReport[j++] = report[i];
+            }
+        }
+        return modifiedReport;
     }
 }
