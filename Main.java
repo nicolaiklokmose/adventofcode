@@ -1,14 +1,18 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        int res = 0;
+        int res_part_one = 0;
+        int res_part_two = 0;
         Scanner sc = new Scanner(System.in);
         List<Integer> listA = new ArrayList<>();
         List<Integer> listB = new ArrayList<>();
+        Map<Integer, Integer> myMap = new HashMap<>();
 
         // Input reading
         while (sc.hasNextLine()) {
@@ -36,13 +40,41 @@ public class Main {
         iterativeQuickSort(listA);
         iterativeQuickSort(listB);
 
+
+
         // Compute total distance between list parallels
         for (int i = 0; i < listA.size(); i++) {
-            res += Math.abs(listA.get(i) - listB.get(i));
+            res_part_one += Math.abs(listA.get(i) - listB.get(i));
         }
 
         // Output result of total distance
-        System.out.println(res);
+        System.out.println("part one: " + res_part_one);
+
+        // Compute similary score
+        res_part_two = populateAndCompute(myMap, listA, listB);
+
+        // Output result of similarity
+        System.out.println("part two: " + res_part_two);
+    }
+
+    /**
+     * Populates frequency counter
+     * @param list
+     */
+    private static int populateAndCompute(Map<Integer, Integer> map, List<Integer> listA, List<Integer> listB) {
+        int result = 0;
+        for (Integer integer : listA) {
+            map.put(integer, 0);
+        }
+        for (Integer integer : listB) {
+            if (map.containsKey(integer)) {
+                map.put(integer, map.get(integer) + 1);
+            }
+        }
+        for (Integer integer : listA) {
+            result += integer * map.get(integer);
+        }
+        return result;
     }
 
     /**
