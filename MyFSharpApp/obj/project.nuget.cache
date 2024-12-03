@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uFnwFJmiGGG5AyWTKnUFrmf23uQAThBwD0qYuLsez99S3FqInREG6D0tPlNTi5fbByc6PoBd/XMQRd5CoRq08w==",
+  "success": true,
+  "projectFilePath": "/Users/niczorn/IdeaProjects/adventofcode/MyFSharpApp/MyFSharpApp.fsproj",
+  "expectedPackageFiles": [
+    "/Users/niczorn/.nuget/packages/fsharp.core/6.0.6/fsharp.core.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
