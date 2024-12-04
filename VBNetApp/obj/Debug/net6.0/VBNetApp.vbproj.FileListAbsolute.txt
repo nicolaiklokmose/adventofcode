@@ -1,0 +1,15 @@
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/bin/Debug/net6.0/VBNetApp
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/bin/Debug/net6.0/VBNetApp.deps.json
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/bin/Debug/net6.0/VBNetApp.runtimeconfig.json
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/bin/Debug/net6.0/VBNetApp.dll
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/bin/Debug/net6.0/VBNetApp.pdb
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.vbproj.AssemblyReference.cache
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.AssemblyInfoInputs.cache
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.AssemblyInfo.vb
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.vbproj.CoreCompileInputs.cache
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.dll
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/refint/VBNetApp.dll
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.pdb
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/VBNetApp.genruntimeconfig.cache
+/Users/niczorn/IdeaProjects/adventofcode/VBNetApp/obj/Debug/net6.0/ref/VBNetApp.dll
